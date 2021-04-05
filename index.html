@@ -1,0 +1,135 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-firestore.js"></script>
+    </head>
+    <body>
+
+        <h1>Cloud Cafe</h1>
+
+        <div class="content">
+
+            <form id="add-cafe-form"></form>
+
+            <ul id="cafe-list"></ul>
+
+        </div>
+
+        <form action="">
+            <input id="name" class="input" name="name" type="texte" placeholder="Nome do aluno">
+            <label class= "label">Obrigatório</label>
+            <input id="email" class="input" name="name" type="texte" placeholder="Nome do responsável">
+            <label class= "label">Obrigatório</label>
+            <input id="email" class="input" name="date"  type="texte" placeholder="Data de nascimento">
+            <label class= "label">Obrigatório</label>
+            <input id="email" class="input" name="nada" type="texte" placeholder="Número da matrícula">
+            <label class= "label">Obrigatório</label>
+            <select class ="select" name="place">
+                <option disabled selected style="display: none;" value="">Escolaridade</option>
+                <option value="rj">Ensino infantil</option>
+                <option value="sp">Ensino fundamental</option>
+                <option value="es">Ensino médio</option>
+                <option value="mg">Ensino especial</option>
+            </select>
+            <label class= "label">Obrigatório</label>
+        
+        <h2>
+            Informe os dados da escola
+        </h2>  
+        
+        <div class="localInfo"></div>
+    
+        <select class ="select" id="slcEstado" name="slcEstado" onchange="populateMun(this.id, 'slcMunicipio');">
+            <option disabled selected style="display: none;" value="">Selecione o estado</option>
+            <option value="MG">Minas Gerais</option>
+            <option value="GO">Goiás</option>
+        </select>
+        
+        <select class ="select" id="slcMunicipio" name="slcMunicipio" onchange="populateEscola(this.id, 'slcEscola');">
+            <option>Selecione o município</option>
+        </select>
+    
+        <select class ="select" id="slcEscola" name="slcEscola">
+            <option>Selecione a escola</option>
+        </select>
+    
+        <h2>
+            Informe os materiais
+        </h2>
+        
+        <div class="localInfo">
+    
+            <div class="checkMaterial">
+                <label for="scales">Caderno 1 matéria -80 folhas</label>
+                <input type="checkbox" id="" name="material">
+            </div>
+            <div class="checkMaterial">
+                <label for="scales">Caderno 10 matérias - 200 folhas</label>
+                <input type="checkbox" id="" name="material">
+            </div>
+            <div class="checkMaterial">
+                <label for="scales">Kit de canetas hidrográficas(5 unidades)</label>
+                <input type="checkbox" id="" name="material">
+            </div>
+            <div class="checkMaterial">
+                <label for="scales">Kit de lápis de escrever(5 unidades)</label>
+                <input type="checkbox" id="" name="material">
+            </div>
+            <div class="checkMaterial">
+                <label for="scales">Caixa de lápis de cor</label>
+                <input type="checkbox" id="" name="material">
+            </div>
+            <div class="checkMaterial">
+                <label for="scales">Tesoura sem ponta</label>
+                <input type="checkbox" id="" name="material">
+            </div>
+            <div class="checkMaterial">
+                <label for="scales">Caderno grande de desenho</label>
+                <input type="checkbox" id="" name="material">
+            </div>
+            <div class="checkMaterial">
+                <label for="scales">Apontador</label>
+                <input type="checkbox" id="" name="material">
+            </div>
+            <div class="checkMaterial">
+                <label for="scales">Borracha</label>
+                <input type="checkbox" id="" name="material">
+            </div>
+            <div class="checkMaterial">
+                <label for="scales">Cola branca</label>
+                <input type="checkbox" id="" name="material">
+            </div>
+            <div class="checkMaterial">
+                <label for="scales">Kit geométrico (régua, transferidor e esquadro)</label>
+                <input type="checkbox" id="" name="material">
+            </div>
+            <div class="checkMaterial">
+                <label for="scales">Mochila</label>
+                <input type="checkbox" id="" name="material">
+            </div>
+
+            <div class="btn_doador">
+                <button class="btn_doador1" type="submit">VOLTAR</button>
+                <button class="btn_doador2" type="submit">CONTINUAR</button>
+              </div>
+            </div>
+        </form>
+        <script>
+            // Your web app's Firebase configuration
+            var firebaseConfig = {
+              apiKey: "AIzaSyBXPzLrtuLDgAgnc4x28gkmWAhD2K-bJjk",
+              authDomain: "doe-educao-projeto.firebaseapp.com",
+              projectId: "doe-educao-projeto",
+              storageBucket: "doe-educao-projeto.appspot.com",
+              messagingSenderId: "466188174278",
+              appId: "1:466188174278:web:fd1513ed47fdfb343ae8c7"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            const  db = firebase.firestore();
+        </script>
+        <script src="app.js"></script>
+
+    </body>
+</html>
